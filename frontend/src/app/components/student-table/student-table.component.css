@@ -11,10 +11,6 @@ table {
     text-align: left;
     padding: 8px;
   }
-  
-  /* tr:nth-child(even) {
-    background-color: #dddddd;
-  } */
 
   th{
     font-size: 16px;
@@ -57,12 +53,18 @@ table {
 .add-btn-container{
   padding: 20px 220px;
   display: flex;
-  justify-content: right;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-btn-elements-container{
+  width: 1000px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .btn{
-  /* width: 70px; */
   height: 30px;
   font-size: 12px;
   border-radius: 5px;
@@ -81,16 +83,10 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* border-color: white;
-  border-style: solid; */
 }
 
 .blank-space{
   width: 33%;
-
-  /* border-color: white;
-  border-style: solid; */
 }
 
 .links-container{
@@ -102,9 +98,6 @@ table {
   color: white;
   font-size: 30px;
   font-weight: 100;
-
-  /* border-color: white;
-  border-style: solid; */
 }
 
 a{
@@ -125,7 +118,6 @@ a{
   display: flex;
   justify-content: left;
   align-items: center;
-
 }
 
 .info-text-container{
@@ -134,7 +126,6 @@ a{
   justify-content: center;
   align-items: center;
   margin-left: 6%;
- 
 }
 
 .info-text{
@@ -142,5 +133,3 @@ a{
   font-weight: 500;
   letter-spacing: -2px;
 }
-
-
