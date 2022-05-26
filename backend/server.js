@@ -9,7 +9,9 @@ import {
   deleteTeacher,
   deleteStudent,
   readStudentInfo,
-  readTeacherInfo
+  readTeacherInfo,
+  updateTeacher,
+  updateStudent
 } from "./database.js";
 
 const app = express();
@@ -61,6 +63,17 @@ app.post("/deleteTeacher", async function (req, res) {
   res.end(JSON.stringify(data));
 });
 
+app.post("/editTeacher", async function (req, res) {
+  let reqBody = req.body;
+  console.log(
+    "Request received to update teacher. Req body: " + JSON.stringify(reqBody)
+  );
+  let data = await updateTeacher(reqBody.name,reqBody.age,reqBody.id);
+
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(data));
+});
+
 // ============== Student Related endpoints ==============
 
 app.get("/listStudents", async function (req, res) {
@@ -102,6 +115,17 @@ app.post("/deleteStudent", async function (req, res) {
     "Request received to delete student. Req body: " + JSON.stringify(reqBody)
   );
   let data = await deleteStudent(reqBody.id);
+
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(data));
+});
+
+app.post("/editStudent", async function (req, res) {
+  let reqBody = req.body;
+  console.log(
+    "Request received to update Student. Req body: " + JSON.stringify(reqBody)
+  );
+  let data = await updateStudent(reqBody.name,reqBody.age,reqBody.religion,reqBody.id);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));

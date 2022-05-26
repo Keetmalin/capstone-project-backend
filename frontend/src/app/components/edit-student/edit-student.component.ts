@@ -32,7 +32,12 @@ export class EditStudentComponent implements OnInit {
   }
 
   editStudent(values){
-    console.log("Still hasn't been Implemented")
+    values.id = this.navigation.extras.state.id;
+    this.service.editStudent(values).subscribe((response)=>{
+      this.studentData = response[0];
+    },(error)=>{
+      console.log('ERROR - ', error)
+    })
   }
 
 }

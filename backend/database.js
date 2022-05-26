@@ -74,6 +74,19 @@ export const deleteTeacher = async (id) => {
     });
 }
 
+export const updateTeacher = async (name, age, id) => {
+    return new Promise(function(resolve,reject) {
+        db.all(`UPDATE teacher SET name='${name}', age=${age} WHERE id=${id}`, function(err, rows) {
+            if(err != null){
+                console.log(err);
+                reject({"status": "error"})
+            }
+            console.log("Successfully updated Teacher Data");
+            resolve({status: "successfully updated Teacher"})
+        });
+    });
+}
+
 export const readStudents = async () => {
     return new Promise(function(resolve,reject) {
         db.all("SELECT * FROM student", function(err, rows) {
@@ -127,5 +140,18 @@ export const deleteStudent = async (id) => {
             resolve({status: "successfully deleted student"})
         });
         
+    });
+}
+
+export const updateStudent = async (name, age, religion, id) => {
+    return new Promise(function(resolve,reject) {
+        db.all(`UPDATE student SET name='${name}', age=${age}, religion='${religion}' WHERE id=${id}`, function(err, rows) {
+            if(err != null){
+                console.log(err);
+                reject({"status": "error"})
+            }
+            console.log("Successfully updated Student Data");
+            resolve({status: "successfully updated Student"})
+        });
     });
 }
