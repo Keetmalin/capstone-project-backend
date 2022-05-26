@@ -39,15 +39,11 @@ test('Testing delete teachers', async t => {
 });
 
 test('Testing edit teachers', async t => {
-    await t.navigateTo("/addTeacher");
-    await t.typeText("#teacher-id", "320000");
-    await t.typeText("#teacher-name", "Rashini Shehara");
-    await t.typeText("#teacher-age", "45");
-    await t.click("#teacher-add");
+    await t.navigateTo("/");
+    await t.click("#teacher-edit-123456");
 
-    await t.navigateTo("/editTeacher");
-    await t.typeText("#teacher-name", "Rashini Basnayaka");
-    await t.typeText("#teacher-age", "55");
+    await t.typeText("#teacher-name", "Changed Teacher Name");
+    await t.typeText("#teacher-age", "99");
     await t.click("#teacher-edit");
 
     await t.navigateTo("/");
@@ -56,5 +52,5 @@ test('Testing edit teachers', async t => {
     const rowCount = await table.find('tr').count;
 
     let tdText = await table.find('tr').nth(rowCount - 1).innerText;
-    await t.expect(tdText).contains("Rashini Basnayaka");
+    await t.expect(tdText).contains("Changed Teacher Name");
 });

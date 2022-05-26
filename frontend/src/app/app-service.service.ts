@@ -40,6 +40,14 @@ export class AppServiceService {
     return this.http.post('/api/deleteTeacher', payload)
   }
 
+  editTeacher(payload: Object){
+    return this.http.post('/api/editTeacher', payload)
+  }
+
+  editStudent(payload: Object){
+    return this.http.post('/api/editStudent', payload)
+  }
+
   addStudent(payload: Object){
     return this.http.post('/api/addStudent', payload)
   }

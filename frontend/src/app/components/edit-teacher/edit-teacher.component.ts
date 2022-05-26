@@ -33,7 +33,12 @@ export class EditTeacherComponent implements OnInit {
   }
 
   editTeacher(values){
-    console.log("Still hasn't been Implemented")
+    values.id = this.navigation.extras.state.id;
+    this.service.editTeacher(values).subscribe((response)=>{
+      this.teacherData = response[0];
+    },(error)=>{
+      console.log('ERROR - ', error)
+    })
   }
 
 }
